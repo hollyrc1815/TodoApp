@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Create a New Todo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+	
+	
+</head>
+<body>
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<div class="container">
+		<h1>Create a New Todo</h1>
+
+		<h3>Please use the form below to submit a Todo Item</h3>
+
+		<form action="#" th:action="@{/}" th:object="${todoList}"
+			method="post">
+			<div class="form-group">
+				<label>Title</label>
+				<input type="text" class="form-control" placeholder="Todo Title..."
+					th:field="*{title}" />
+			</div>
+
+			<div class="form-group">
+				<label>Author</label>
+				<input type="text" class="form-control"
+					placeholder="Your Name Here..." th:field="*{author}" />
+			</div>
+			
+			<div class="form-group">
+				<label>Dificulty 1-5</label>
+				<input id="myNumber" type="number" class="form-control" name="difficulty" min="1" max="5"
+					placeholder="1 to 5" th:field="*{difficulty}" />
+			</div>
+
+			<div class="form-group">
+				<label>Thing to do</label>
+				<textarea type="text" class="form-control" placeholder="Todo Item"
+					rows="4" th:field="*{todo}" ></textarea>
+			 </div>
+			
+			<!--<div class="form-group">
+				<input type="date" class="form-control" placeholder="Due date"
+					 th:value="${{dateDue}}" ></input>
+			</div> -->
+			
+	
+			
+			
+		
+			<div class="form-group">
+ 				<label>Due Date</label>
+ 				<input type="datetime-local" class="form-control"  th:field="*{dateDue}"  />
+ 			</div>
+
+			
+			
+			<div class="form-group">
+			<select th:field="*{status}">
+				<option th:each="status : ${T(com.TechTalentSouth.model.Status).values()}" th:value="${status}" th:text="${status}">
+				</option> 
+			</select>
+			</div>
+				
+				<!-- maxlength="255" -->
+			<button class="btn btn-primary">Submit Your todo</button>
+		</form>
+
+
+
+
+
+
+	</div>
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+		<script src="/custom.js"></script>
+		
+		
+		
+</body>
+</html>

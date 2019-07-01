@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+	<div th:replace="fragments/navbar :: navbar" ></div>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-dark">
+				<div class="panel-heading">
+					<h1 th:text="${title}"></h1>
+					<h1 th:text="${dificulty}"></h1>
+				</div>
+				<div class="panel-body">
+					<h1 th:text="${author}"></h1>
+					<h1 th:text="${todo}"></h1>
+					<h1 th:text="${createAt}"></h1>
+					<h1 th:text="${dateDue}"></h1>
+					<h1 th:text="${status}"></h1>
+					
+				</div>
+				<div class="panel-footer">
+					<!-- Link to Update -->
+					<!-- Link to Show  -->
+					<!--  Link to Destroy -->
+						<a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
+						<a th:href="@{/new}"><button class="btn btn-primary">Submit a New Todo</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>

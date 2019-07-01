@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Todo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+</head>
+<body>
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<div class="container">
+
+		<h1>What do you have todo??</h1>
+
+		<div class="row">
+			<div th:each="todoList:${todo}">
+				<div class="col-md-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h2 th:text="${todoList.title}" /></h2>
+							<h2 th:text="${todoList.author}" /></h2>
+						</div>
+						<div class="panel-body">
+							<p th:text="${todoList.todo}" ></p>
+							<p th:text="${todoList.difficulty}" ></p>
+							<p th:text="${todoList.createdAt}" ></p>
+							<p th:text="${todoList.dateDue}" ></p>
+							<p th:text="${todoList.status}" ></p>
+						</div>
+						<div class="panel-footer">
+							<!--  Link to Destroy -->
+							<form action="#" th:action="@{'/todo_list/{id}'(id=${todoList.id})}"
+								th:method="delete" class="form-horizontal">
+								<div class="form-group">
+									<input type="hidden" name="_method" value="delete" />
+									<button type="submit" class="btn btn-danger btn-block"
+										th:text="Delete">Delete</button>
+								</div>
+							</form>
+							<!-- Link to Show  -->
+							<form action="#"
+								th:action="@{'/todo_list/show/{id}'(id=${todoList.id})}"
+								th:method="get" class="form-horizontal">
+								<div class="form-group">
+									<input type="hidden" name="_method" value="get" />
+									<button type="submit" class="btn btn-secondary btn-block"
+										th:text="ShowTodo">Show Todo Item</button>
+								</div>
+							</form>
+							<!-- Link to Update -->
+							<form action="#"
+								th:action="@{'/todo_list/edit/{id}'(id=${todoList.id})}"
+								th:method="get" class="form-horizontal">
+								<div class="form-group">
+									<input type="hidden" name="_method" />
+									<button type="submit" class="btn btn-info btn-block"
+										th:text="Update">Update</button>
+								</div>
+							</form>
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+	<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
