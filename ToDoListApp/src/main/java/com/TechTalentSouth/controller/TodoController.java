@@ -53,8 +53,15 @@ public class TodoController {
     public String deletePostWithId(@PathVariable Long id, TodoList todoList, Model model) {
 		todoRepository.deleteById(id);
         model.addAttribute("todos", todoRepository.findAll());
-        return "index";
+        return "deleted";
     }
+	
+//	@RequestMapping(value = "/todo_list/{id}", method = RequestMethod.DELETE)
+//    public String deletePostWithId(@PathVariable Long id, TodoList todoList, Model model) {
+//		todoRepository.deleteById(id);
+//        model.addAttribute("todos", todoRepository.findAll());
+//        return "index";
+//    }
 	
 	
 	@RequestMapping(value = "/todo_list/show/{id}", method = RequestMethod.GET)

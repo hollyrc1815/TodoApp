@@ -14,37 +14,43 @@
 <body>
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<div class="container">
-
-		<h1>What do you have todo??</h1>
-
+		<h1>What do you have To Do??</h1>
 		<div class="row">
-			<div th:each="todoList:${todo}">
-				<div class="col-md-12">
-					<div class="panel panel-primary">
-						<div class="panel-heading">What Do I Need To Do?</div>
-						<div class="panel-body">
-							<table class="table">
+			<div class="col-md-12">
+					<table class="table table-hover table-responsive">
+						<thead>
+					      <tr>
+					        <th>Title</th>
+					        <th>Due Date</th>
+					        <th>Status</th>
+					      </tr>
+						</thead>						
+						<div th:each="todoList:${todo}">
+							 <tbody>
 								<tr>
-									<td><h2 th:text="${todoList.title}" ></h2></td>
-									<td><p th:text="${todoList.dateDue}" ></p></td>
-									<td><p th:text="${todoList.status}" ></p></td>
+									<td><h5 th:text="${todoList.title}" ></h5></td>
+									<td><h5 th:text="${todoList.dateDue}" ></h5></td>
+									<td><h5 th:text="${todoList.status}" ></h5></td>
 									<td><form action="#" th:action="@{'/todo_list/show/{id}'(id=${todoList.id})}" th:method="get" class="form-horizontal">
 									<div class="form-group">
 										<input type="hidden" name="_method" value="get" />
-										<button type="submit" class="btn btn-secondary btn-block" th:text="ShowTodo">Show Todo Item</button>
+										<button type="submit" class="btn btn-secondary btn-block" th:text="ShowTodo">Show To Do Item</button>
 									</div>
 									</form></td>
 								</tr>
-							</table>
-						</div>
-					   <!-- <h2 th:text="${todoList.author}" /></h2>
-							<p th:text="${todoList.todo}" ></p>
-							<p th:text="${todoList.difficulty}" ></p>
-							<p th:text="${todoList.createdAt}" ></p>
-							<p th:text="${todoList.status}" ></p> -->
-						
-						
-							<!--  Link to Destroy -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+	<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<!--  Link to Destroy -->
 							<!--<form action="#" th:action="@{'/todo_list/{id}'(id=${todoList.id})}"
 								th:method="delete" class="form-horizontal">
 								<div class="form-group">
@@ -65,20 +71,3 @@
 										th:text="Update">Update</button>
 								</div>
 							</form>-->
-
-
-
-
-						
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-	</div>
-	<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
-</html>

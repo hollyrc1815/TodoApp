@@ -14,36 +14,36 @@
 	<div th:replace="fragments/navbar :: navbar" ></div>
 	<div class="container">
 		<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-dark">
-				<div class="panel-heading">
-					<label>Title</label>
-					<h1 th:text="${title}"></h1>
-					<label>Difficulty</label>
-					<h1 th:text="${difficulty}"></h1>
-				</div>
-				<div class="panel-body">
-					<label>Author</label>
-					<h1 th:text="${author}"></h1>
-					<label>Thing to do</label>
-					<h1 th:text="${todo}"></h1>
-					<label>Created On </label>
-					<h1 th:text="${createAt}"></h1>
-					<label>Due On</label>
-					<h1 th:text="${dateDue}"></h1>
-					<label>Status</label>
-					<h1 th:text="${status}"></h1>
-					
-				</div>
-				<div class="panel-footer">
-					<!-- Link to Update -->
-					<!-- Link to Show  -->
-					<!--  Link to Destroy -->
-						<a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
-						<a th:href="@{/new}"><button class="btn btn-primary">Submit a New Todo</button></a>
+			<div class="col-md-12">
+				<div class="panel panel-dark">
+					<div class="panel-heading">
+						<label>Title</label>
+						<h6 th:text="${title}"></h6>
+						<label>Difficulty</label>
+						<h6 th:text="${difficulty}"></h6>
+					</div>
+					<div class="panel-body">
+						<label>Author</label>
+						<h6 th:text="${author}"></h6>
+						<label>Thing to do</label>
+						<h6 th:text="${todo}"></h6>
+						<label>Created On </label>
+						<h6 th:text="${createAt}"></h6>
+						<label>Due On</label>
+						<h6 th:text="${dateDue}"></h6>
+						<label>Status</label>
+						<h6 th:text="${status}"></h6>
+						
+					</div>
+					<div class="panel-footer">
+						<!-- Link to Update -->
+						<!-- Link to Show  -->
+						<!--  Link to Destroy -->
+							<a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
+							<a th:href="@{/new}"><button class="btn btn-primary">Submit a New Todo</button></a>
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 </div>
 
