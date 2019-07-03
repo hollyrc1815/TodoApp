@@ -1,0 +1,7 @@
+com\TechTalentSouth\ToDoListAppApplication.class
+com\TechTalentSouth\model\User.class
+com\TechTalentSouth\controller\TodoController.class
+com\TechTalentSouth\model\TodoList$TodoListBuilder.class
+com\TechTalentSouth\model\Status.class
+com\TechTalentSouth\repository\TodoRepository.class
+com\TechTalentSouth\model\TodoList.class
