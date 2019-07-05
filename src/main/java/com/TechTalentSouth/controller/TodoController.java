@@ -24,7 +24,7 @@ public class TodoController {
 	
 	@GetMapping(value="/")
 	public String index(TodoList todoList, Model model) {
-		model.addAttribute("todo", todoRepository.findAll());
+		model.addAttribute("todo", todoRepository.findByOrderByDateDueAsc());
 		return "index";
 	    }
 	
