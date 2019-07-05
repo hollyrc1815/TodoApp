@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Results</title>
+<title>See Your New Todo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,40 +17,20 @@
 			<div class="col-md-12">
 				<div class="panel panel-dark">
 					<div class="panel-heading">
-						<label>Title</label>
-						<h6 th:text="${title}"></h6>
-						<label>Difficulty</label>
-						<h6 th:text="${difficulty}"></h6>
-					</div>
-					<div class="panel-body">
-						<label>Author</label>
-						<h6 th:text="${author}"></h6>
-						<label>Thing to do</label>
-						<h6 th:text="${todo}"></h6>
-						<label>Created On </label>
-						<h6 th:text="${createAt}"></h6>
-						<label>Due On</label>
-						<h6 th:text="${dateDue}"></h6>
-						<label>Status</label>
-						<h6 th:text="${status}"></h6>
 						
 					</div>
+					<div class="panel-body">
+						<h3>Your Item has been Deleted</h3>
+					</div>
+
 					<div class="panel-footer">
-						<!-- Link to Update -->
-						<!-- Link to Show  -->
-						<!--  Link to Destroy -->
-							<a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
-							<a th:href="@{/new}"><button class="btn btn-primary">Submit a New Todo</button></a>
+						<a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a> 
+						<a th:href="@{/new}"><button class="btn btn-primary">Submit a New To Do Item</button></a>
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
-</div>
-
-	<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</html>
-
 	<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </html>

@@ -28,18 +28,19 @@ public class TodoController {
 		return "index";
 	    }
 	
-	private TodoList todoList;
+	
 	@PostMapping(value = "/")
 	public String create(TodoList todoList, Model model) {
-		todoRepository.save(todoList);
+		
 	    
-			model.addAttribute("todo", todoList.getTitle());
-			model.addAttribute("todo", todoList.getAuthor());
+			model.addAttribute("title", todoList.getTitle());
+			model.addAttribute("author", todoList.getAuthor());
 	        model.addAttribute("todo", todoList.getTodo());
-	        model.addAttribute("todo", todoList.getDifficulty());
+	        model.addAttribute("difficulty", todoList.getDifficulty());
 	        model.addAttribute("createdAt", todoList.getCreatedAt());
 	        model.addAttribute("dateDue", todoList.getDateDue());
 	        model.addAttribute("status", todoList.getStatus());
+	        todoRepository.save(todoList);
 	        return "result";
 	}
 	
@@ -52,8 +53,15 @@ public class TodoController {
     public String deletePostWithId(@PathVariable Long id, TodoList todoList, Model model) {
 		todoRepository.deleteById(id);
         model.addAttribute("todos", todoRepository.findAll());
-        return "index";
+        return "deleted";
     }
+	
+//	@RequestMapping(value = "/todo_list/{id}", method = RequestMethod.DELETE)
+//    public String deletePostWithId(@PathVariable Long id, TodoList todoList, Model model) {
+//		todoRepository.deleteById(id);
+//        model.addAttribute("todos", todoRepository.findAll());
+//        return "index";
+//    }
 	
 	
 	@RequestMapping(value = "/todo_list/show/{id}", method = RequestMethod.GET)

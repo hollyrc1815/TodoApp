@@ -47,7 +47,7 @@ import lombok.NoArgsConstructor;
 		@CreationTimestamp 
 		private Date createdAt;
 		
-		@DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm")		
+		@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")		
 		private Date dateDue;
 		
 		@Enumerated(value = EnumType.STRING)

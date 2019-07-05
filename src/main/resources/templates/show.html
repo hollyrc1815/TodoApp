@@ -13,37 +13,58 @@
 <body>
 	<div th:replace="Fragments/navbar"></div>
 	<div class="container">
-		<h1>See Your Todo</h1>
-
-
-
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-dark">
 					<div class="panel-heading">
+						<label>Title:</label>
 						<h1 th:text="${todo.title}"></h1>
 					</div>
 					<div class="panel-body">
+						<label>Author:</label>
 						<p th:text="${todo.author}" />
+						<label>Difficulty:</label>
+						<p th:text="${todo.difficulty}" />
+						<label>What you need to do:</label>
 						<p th:text="${todo.todo}" />
+						<label>Created:</label>
 						<p th:text="${todo.createdAt}" ></p>
+						<label>Due Date:</label>
 						<p th:text="${todo.dateDue}" ></p>
+						<label>Status:</label>
 						<p th:text="${todo.status}" ></p>
 					</div>
 
-					<div class="panel-footer">
-						<a th:href="@{/}"><button class="btn btn-success">Back
-								To Home Page</button></a> <a th:href="@{/new}"><button
-								class="btn btn-primary">Submit a New Blog Post</button></a>
-
-
-
-
+					
+							<div class="panel-footer">
+							
+								<div class="form-inline">
+								
+								<form action="#" th:action="@{'/todo_list/{id}'(id=${todo.id})}" th:method="delete" class="form-horizontal">
+									<div class="form-group">
+										<input type="hidden" name="_method" value="delete" />
+										<button type="submit" class="btn btn-danger" 
+											th:text="Delete" onclick="return confirm('Are you sure?')">Delete</button>
+									</div>
+							   </form>
+								
+								
+							   <form action="#" th:action="@{'/todo_list/edit/{id}'(id=${todo.id})}" th:method="get" class="form-horizontal">
+							   		<div class="form-group">
+										<input type="hidden" name="_method" />
+										<button type="submit" class="btn btn-info" th:text="Update">Update</button>
+								    </div>
+							  </form>
+								
+								
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		
+
 	<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </html>

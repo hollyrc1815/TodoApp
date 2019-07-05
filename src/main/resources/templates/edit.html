@@ -12,7 +12,7 @@
 
 <body>
 	<div th:replace="Fragments/navbar" ></div>
-        <div class="container">
+       <div class="container">
 			<h1>Edit Your Todos</h1>
 			
 		    <p>Please use the form below to edit a Todo:</p>
@@ -40,17 +40,17 @@
  			<input type="text" class ="form-control" textarea rows="4" cols="50" th:field="*{todo}" />
  		</div>
  		
- 		<!--  <div class="form-group">
- 			<label>Due Date</label>
- 			<input type="datetime-local" class="form-control"  th:field="*{dateDue}" />
- 		</div>-->
- 		
- 	<div class="form-group">
- 				<label>Due Date</label>
- 				<input type="datetime-local" class="form-control"  th:field="*{dateDue}" />
- 			</div>
- 		
- 		
+		<div class="form-group">
+			<label>Due Date</label>
+			<input type="datetime-local" class="form-control"  th:field="*{dateDue}" />
+		</div>
+	
+		<div class="form-group">
+		<select th:field="*{status}">
+			<option th:each="status : ${T(com.TechTalentSouth.model.Status).values()}" th:value="${status}" th:text="${status}">
+			</option> 
+		</select>
+	</div>
  		
  		
  		<button type="submit" class="btn btn-primary">Update Your Post</button> 	
